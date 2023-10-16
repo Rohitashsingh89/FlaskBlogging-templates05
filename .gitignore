@@ -1,0 +1,11 @@
+# .gitignore
+*.pyc
+__pycache__
+*.sqlite3
+
+# Ignore the virtual environment directory (if using virtualenv)
+venv/
+env/
+
+# Ignore the .env file
+.env

@@ -1,0 +1,47 @@
+
+{% extends "base.html" %} 
+{% block title %}bgremover {% endblock %}
+{% block body %} 
+
+
+  <div class="container mx-auto">
+    <div class="content mx-auto"> 
+        <div class="form">
+            <form action="/remover" method="POST" enctype="multipart/form-data">                   
+              <div class="formcontainer remover">
+                  <h1 class="my">Background Remover </h1>
+                  <p>Select Any Image </p>
+                  <input type="file" name="file" id="file" class=" input-file">
+                  <input type="submit" value="Remove Background" name="submit" class="btn mx inputbox my btn3" id="submit" style="width: 25%;">
+                
+                  <p class="">
+                    {% with messages = get_flashed_messages() %} 
+                    {% if messages %} 
+                    <ul>
+                      {% for message in messages %} 
+                      <li class="message">{{ message }}</li>
+                      {% endfor %} 
+                    </ul>
+                    {% endif %} 
+                    {% endwith %} 
+                  </p>
+                  
+                </div>
+            </form>
+        </div>
+    </div>
+  </div>
+        
+  <div class="loginfooter mt-4">
+    <div class="loginfcontainer">
+      Contact us on     
+        <a href="{{parameters['git_url']}}" target="_blank"> <div class="fa fa-github pointer m-l bg"></div></a>
+        <a href="{{parameters['lk_url']}}" target="_blank"> <div class="fa fa-linkedin pointer m-l bg"></div></a>
+        <a href="{{parameters['fb_url']}}" target="_blank"> <div class="fa fa-facebook pointer m-l bg"></div></a>
+    </div>
+  </div>
+    
+
+
+{% endblock body %}
+

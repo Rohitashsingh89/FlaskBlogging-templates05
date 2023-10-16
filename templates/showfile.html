@@ -1,0 +1,57 @@
+{% extends "base.html" %} 
+{% block title %}Image Viewer {% endblock %}
+{% block body %} 
+
+
+  <div class="container mx-auto">
+    <div class="content mx-auto"> 
+      <div class="form">
+        <form action="/download/{{without_bg_img}}" method="POST" enctype="multipart/form-data">                   
+          <div class="formcontainer remover">
+            <h1 class="my">Image Viewer </h1>
+
+            <p class="">
+              {% with messages = get_flashed_messages() %} 
+              {% if messages %} 
+              <ul>
+                {% for message in messages %} 
+                <li class="message">{{ message }}</li>
+                {% endfor %} 
+              </ul>
+              {% endif %} 
+              {% endwith %} 
+            </p>
+
+              <p class="mx">Before remove Background </p>
+                {% if filename %} 
+                  <div style="padding: 20px;">
+                    <img src="{{ url_for('static', filename=filename) }}" alt="show uploaded file" class="image2">
+                  </div>
+                  <button type="submit" class="btn btn3">Download your image</button>
+                {% endif %}
+            
+              <p class="mx">After remove Background </p>
+                {% if without_bg_img %} 
+                  <div style="padding: 20px;">
+                    <img src="{{ url_for('static', filename=without_bg_img) }}" alt="show uploaded file" class="image2">
+                  </div>
+                  <button type="submit" class="btn btn3"><a href="{{ url_for('.download') }}">Download</a> Download your image</button>
+                {% endif %}
+
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+  <div class="loginfooter mt-4">
+    <div class="loginfcontainer">
+      Contact us on     
+        <a href="{{parameters['git_url']}}" target="_blank"> <div class="fa fa-github pointer m-l bg"></div></a>
+        <a href="{{parameters['lk_url']}}" target="_blank"> <div class="fa fa-linkedin pointer m-l bg"></div></a>
+        <a href="{{parameters['fb_url']}}" target="_blank"> <div class="fa fa-facebook pointer m-l bg"></div></a>
+    </div>
+  </div>
+  
+
+{% endblock body %}
