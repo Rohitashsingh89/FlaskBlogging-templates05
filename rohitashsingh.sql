@@ -41,9 +41,8 @@ CREATE TABLE `contact` (
 --
 
 INSERT INTO `contact` (`sno`, `name`, `email`, `phone_num`, `msg`, `date`) VALUES
-(1, 'Ganesh Kumar', 'ganeshkumar350@gmail', '9045210272', 'This is amazing website', '2022-12-01 20:43:56'),
-(2, 'Rohitash Singh', 'rohitashmtr2002@gmai', '08923354700', 'This is a good website', '2022-12-02 10:54:40'),
-(3, 'Pawan', 'pawan.kumar2022@glba', '8192013236', 'my experience is good on this site.', '2022-12-06 20:10:40');
+(1, 'Rohitash', 'rohitash@gmail', '9045210123', 'This is amazing website', '2022-12-01 20:43:56'),
+(3, 'Shyam', 'shyam@gmail.com', '8197846345', 'my experience is good on this site.', '2022-12-06 20:10:40');
 
 -- --------------------------------------------------------
 
