@@ -36,7 +36,6 @@ app.config.update(
 
 mail = Mail(app)
 if(local_server):
-    # app.config['SQLALCHEMY_DATABASE_URI'] = ("mysql://root:%@localhost:3306/todo" % quote_plus("Mysql@0987654321"))
     app.config['SQLALCHEMY_DATABASE_URI'] = ("mysql://root@localhost:3306/todo")
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = parameters['production_url']
@@ -99,59 +98,16 @@ def contact():
    
     return render_template("contact.html", parameters=parameters)
 
-
-# @app.route("/blog")
-# def blog():
-#     post = Posts.query.filter_by().all()
-#     last = math.ceil(len(post) / int(parameters['no_of_posts'] ))
-#     page = request.args.get('page', 1, type=int)
-#     print(post)
-#     recent_posts = Posts.query.filter_by('date').all()
-#     if(not str(page).isnumeric()):
-#         page = 1
-
-#     # set the pagination configuration
-#     # post = Posts.query.paginate(page=page, per_page=parameters['no_of_posts'])
-#     # return render_template('post.html', parameters=parameters, post=post)
-
-#     page = int(page)
-#     # slicing
-#     post = post[(page -1) * int(parameters['no_of_posts']) : (page -1) * int(parameters['no_of_posts']) + int(parameters['no_of_posts'])]
-#     # # pagination logic
-#     # # STARTING
-#     if page == 1:
-#         prev = "#"
-#         next = "/?page=" +str(page + 1)
-#     # LAST
-#     elif page == last:
-#         prev = "/?page=" +str(page - 1)
-#         next = "#"
-#     # MIDDLE
-#     else:
-#         prev = "/?page=" +str(page - 1)
-#         next = "/?page=" +str(page + 1)
-    
-#     # slug is unique
-#     return render_template('Blog-home2.html', parameters=parameters, posts=post, prev=prev, next=next)
-#     # return render_template('Blog-home.html', parameters=parameters, post=post)
-
-
 @app.route("/blog")
 def blog():
-    # Retrieve all posts and order them by date in descending order
     post = Posts.query.order_by().all()
     recent_posts = Posts.query.order_by().all()[0:3]
-    # recent_posts = Posts.query.order_by(desc(Posts.date)).all()
-    # Determine the number of posts to display per page
     posts_per_page = int(parameters['no_of_posts'])
 
-    # Get the current page number from the request parameters
     page = request.args.get('page', 1, type=int)
 
-    # Slice the posts to display the current page
     posts = post[(page - 1) * posts_per_page: page * posts_per_page]
 
-    # Calculate pagination variables
     total_pages = math.ceil(len(post) / posts_per_page)
     prev_page = page - 1 if page > 1 else '#'
     next_page = page + 1 if page < total_pages else '#'
@@ -175,9 +131,6 @@ def download():
     # path = os.path.join(current_app.root_path, app.config['UPLOAD_FOLDER'])
     return send_file(path, as_attachment=True)
             
-
-
-
 @app.route("/remover", methods=['GET', 'POST'])
 def bgremover():
     if request.method == 'POST':
@@ -215,8 +168,6 @@ def showfile():
     without_bg_img = request.args.get('without_bg_img')
     # return redirect(url_for('static', filename='uploads/' + filename), code=301)
     return render_template('showfile.html', parameters=parameters, filename=filename, without_bg_img=without_bg_img)
-
-
 
 @app.route("/dashboard", methods=['GET', 'POST'])
 def dashboard():
@@ -272,12 +223,7 @@ def delete(sno):
         db.session.delete(post)
         db.session.commit()
     return redirect('/dashboard')
-    
-# @app.route("/edit/")
-# def edited():
-#     return render_template('dashboard.html', parameters=parameters, post=post)
-
-
+   
 @app.route("/logout")
 def logout():
     session.pop('user')
