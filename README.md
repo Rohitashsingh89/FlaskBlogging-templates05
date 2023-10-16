@@ -17,9 +17,9 @@ The primary objective of contributing this template to open source is to provide
 
 ## SnapShot
 
-<img src="https://github.com/Rohitashsingh89/FlaskBlogging-templates05/assets/93479842/bebf1a5f-9653-4505-9b3e-4109a06ae49f" alt="Templates03" height="300">
+<img src="https://github.com/Rohitashsingh89/FlaskBlogging-templates05/assets/93479842/9c818a34-33b8-4072-839b-00c4e34e6c03" alt="Templates03" height="300">
 
-[View Full Image](https://github.com/Rohitashsingh89/FlaskBlogging-templates05/assets/93479842/bebf1a5f-9653-4505-9b3e-4109a06ae49f)
+[View Full Image](https://github.com/Rohitashsingh89/FlaskBlogging-templates05/assets/93479842/9c818a34-33b8-4072-839b-00c4e34e6c03)
 
 
 ## Technologies Used
