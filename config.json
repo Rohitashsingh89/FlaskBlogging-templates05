@@ -15,7 +15,7 @@
         "no_of_posts" : 6,
         "admin_user" : "Rohitash Singh",
         "admin_password" : "123456",
-        "upload_location" : "D:\\PROGRAMS\\flask\\tutorial\\portfolio\\static",
-        "bgremove_upload_location" : "D:\\PROGRAMS\\flask\\tutorial\\portfolio\\static\\chg_bg_"
+        "upload_location" : "path\\to\\your\\static",
+        "bgremove_upload_location" : "path\\to\\your\\static\\chg_bg_"
     }
 }
